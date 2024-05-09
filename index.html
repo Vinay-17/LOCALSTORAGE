@@ -6,6 +6,13 @@
     <title>Localstorage</title>
 </head>
 <body>
+    <div id="grand">grandparent
+        <div id="parent">parent
+            <div id="child">
+                     child
+            </div>
+        </div>
+    </div>
     <script>
         localStorage.setItem("USERDETAILS","{name:\"vinay\",password:\"vinay1\"}")
         localStorage.setItem("USERDETAILS1","{name:\"suseela\",password:\"veerapaneni\"}")
@@ -17,6 +24,27 @@
         sessionStorage.setItem("name2:","vinay")
         o=sessionStorage.getItem("name:")
         document.write(o)
+        let div1=document.getElementById("grand");
+        div1.style.backgroundColor="orange"
+        div1.style.padding="40px"
+        let div2=document.getElementById("parent");
+        div2.style.backgroundColor="white"
+        div2.style.padding="30px"
+        let div3=document.getElementById("child");
+        div3.style.backgroundColor="green"
+        div3.style.padding="20px"
+        div1.addEventListener("click",()=>{
+            
+            console.log("grandchild id triggered")
+        })
+        div2.addEventListener("click",()=>{
+            console.log("parentchild id triggered")
+        })
+        div3.addEventListener("click",(e)=>{
+            e.stopImmediatePropagation
+            console.log("child id triggered")
+        })
+        
 
     </script>
 </body>
